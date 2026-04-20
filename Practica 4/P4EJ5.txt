@@ -1,0 +1,34 @@
+ALGORITMO P4EJ5
+//VAR
+	Entero: CONT_HS, CONT_EMP, CONT_DIAS, ID_MAX, HS_MAX, DIA, DIA_ANT, ID, HS
+//INICIO
+CONT_HS <- 0
+CONT_EMP <- 0
+CONT_DIAS <- 0
+ID_MAX <- 0
+HS_MAX <- 0
+LEER(DIA)
+DIA_ANT <- DIA
+MIENTRAS( DIA>0 )
+	LEER(ID,HS)
+	SI(HS > HS_MAX)
+		ID_MAX <- ID
+		HS_MAX <- HS
+	FIN SI
+	CONT_HS <- CONT_HS + HS
+	CONT_EMP <- CONT_EMP + 1
+	LEER(DIA)
+	SI(DIA <> DIA_ANT)
+		ESCRIBIR("El empleado con mas hs extra es: ",ID_MAX)
+		ESCRIBIR("El promedio de horas trabajadas es: ", CONT_HS*1.0/CONT_EMP)
+		ID_MAX <- 0
+		HS_MAX <- 0
+		CONT_HS <- 0
+		CONT_EMP <- 0
+		CONT_DIAS <- CONT_DIAS + 1
+		DIA_ANT <- DIA
+	FIN SI
+FIN MIENTRAS
+ESCRIBIR("Se trabajo durante ",CONT_DIAS, " dias")
+FIN ALGORITMO
+
